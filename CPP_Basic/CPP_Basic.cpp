@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "EnumDemo.h"
 
+using namespace std;
 using namespace CPP_Basic;
 
 // Main 外不要套 namespace
@@ -11,10 +12,23 @@ int main()
 	EnumDemo::Colors color1 = EnumDemo::Colors::Black;
 	EnumDemo pen;
 
-	std::cout << (int)color1 << std::endl;
-	std::cout << (int)pen.mBookColor << std::endl;
-	std::cout << (int)pen.mPenColor << std::endl;
-	std::cout << "Hello World!" << std::endl;
+	cout << "Color1: " << (int)color1 << endl;
+	cout << "mBookColor: " << (int)pen.mBookColor << endl;
+	cout << "mPenColor: " << (int)pen.mPenColor << endl;
+	cout << "Hello World!" << endl;
+
+	// Pointer
+    int  var = 20;
+    int* ip = &var;
+    cout << "Value of var variable: " << var << endl;
+    cout << "Address stored in ip variable: " << ip << endl;
+    *ip = 35;
+    cout << "Value of *ip variable: " << *ip << endl;
+
+	auto* penPtr = &pen;
+	penPtr->mPenColor = EnumDemo::Colors::Red;
+	cout << "mPenColor: " << (int)pen.mPenColor << endl;
+
 	system("pause");
 	return 0;
 }

@@ -1401,21 +1401,17 @@ using namespace std;
 
 int main ()
 {
-    int  var = 20;   // 实际变量的声明
-    int  *ip;        // 指针变量的声明
+	// Pointer
+    int  var = 20;
+    int* ip = &var;
+    cout << "Value of var variable: " << var << endl;
+    cout << "Address stored in ip variable: " << ip << endl;
+    *ip = 35;
+    cout << "Value of *ip variable: " << *ip << endl;
 
-    ip = &var;       // 在指针变量中存储 var 的地址
-
-    cout << "Value of var variable: ";
-    cout << var << endl;
-
-    // 输出在指针变量中存储的地址
-    cout << "Address stored in ip variable: ";
-    cout << ip << endl;
-
-    // 访问指针中地址的值
-    cout << "Value of *ip variable: ";
-    cout << *ip << endl;
+	// auto* penPtr = &pen;
+	// penPtr->mPenColor = EnumDemo::Colors::Red;
+	// cout << "mPenColor: " << (int)pen.mPenColor << endl;  
     return 0;
 }
 ```
@@ -1680,3 +1676,6 @@ int* myFunction() {
 }
 ```
 
+# C++ 引用
+
+引用变量是一个别名，也就是说，它是某个已存在变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。
