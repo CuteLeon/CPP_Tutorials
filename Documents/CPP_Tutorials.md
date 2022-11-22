@@ -1209,7 +1209,7 @@ int val = a[2][3];
 
 ## C++ 指向数组的指针
 
-数组名是一个指向数组中第一个元素的常量指针。
+数组名是一个指向数组中第一个元素的常量指针，是一个常量指针，不可修改。
 
 **balance** 是一个指向 &balance[0] 的指针，即数组 balance 的第一个元素的地址。
 
@@ -1290,6 +1290,393 @@ int * getRandom( )
     }
 
     return r;
+}
+```
+
+# C++ 字符串
+
+C++ 提供了以下两种类型的字符串表示形式：
+
+- C 风格字符串
+- C++ 引入的 string 类类型
+
+## C 风格字符串
+
+C 风格的字符串起源于 C 语言，并在 C++ 中继续得到支持。字符串实际上是使用 **null** 字符 '' 终止的一维字符数组。因此，一个以 null 结尾的字符串，包含了组成字符串的字符。
+
+下面的声明和初始化创建了一个 "Hello" 字符串。由于在数组的末尾存储了空字符，所以字符数组的大小比单词 "Hello" 的字符数多一个。char greeting[6] = {'H', 'e', 'l', 'l', 'o', ''};
+
+依据数组初始化规则，您可以把上面的语句写成以下语句：
+
+```c++
+char greeting[6] = {'H', 'e', 'l', 'l', 'o', ''};
+char greeting[] = "Hello"; // size = 5 + 1 = 6
+```
+
+其实，您不需要把 *null* 字符放在字符串常量的末尾。C++ 编译器会在初始化数组时，自动把 '' 放在字符串的末尾。
+
+C++ 中有大量的函数用来操作以 null 结尾的字符串
+
+| 序号 | 函数                | 目的                                                         |
+| :--- | :------------------ | ------------------------------------------------------------ |
+| 1    | **strcpy(s1, s2);** | 复制字符串 s2 到字符串 s1。                                  |
+| 2    | **strcat(s1, s2);** | 连接字符串 s2 到字符串 s1 的末尾。                           |
+| 3    | **strlen(s1);**     | 返回字符串 s1 的长度。                                       |
+| 4    | **strcmp(s1, s2);** | 如果 s1 和 s2 是相同的，则返回 0；如果 s1<s2 则返回小于 0；如果 s1>s2 则返回大于 0。 |
+| 5    | **strchr(s1, ch);** | 返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。   |
+| 6    | **strstr(s1, s2);** | 返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。 |
+
+## C++ 中的 String 类
+
+C++ 标准库提供了 **string** 类类型，支持上述所有的操作，另外还增加了其他更多的功能。
+
+```c++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main ()
+{
+    string str1 = "Hello";
+    string str2 = "World";
+    string str3;
+    int  len ;
+
+    // 复制 str1 到 str3
+    str3 = str1;
+    cout << "str3 : " << str3 << endl; 
+
+    // 连接 str1 和 str2
+    str3 = str1 + str2;
+    cout << "str1 + str2 : " << str3 << endl;
+
+    // 连接后，str3 的总长度
+    len = str3.size();
+    cout << "str3.size() :  " << len << endl;
+    return 0;
+} 
+```
+
+# C++ 指针
+
+每一个变量都有一个内存位置，每一个内存位置都定义了可使用连字号（&）运算符访问的地址，它表示了在内存中的一个地址。
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main (){
+    int  var1;
+    char var2[10];
+
+    cout << "var1 变量的地址： ";
+    cout << &var1 << endl;
+
+    cout << "var2 变量的地址： ";
+    cout << &var2 << endl;
+    return 0;
+}
+```
+
+**指针**是一个变量，其值为另一个变量的地址，即，内存位置的直接地址。就像其他变量或常量一样，您必须在使用指针存储其他变量地址之前，对其进行声明。
+
+在这里，**type** 是指针的基类型，它必须是一个有效的 C++ 数据类型，**var-name** 是指针变量的名称。用来声明指针的星号 * 与乘法中使用的星号是相同的。但是，在这个语句中，星号是用来指定一个变量是指针。
+
+所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表内存地址的长的十六进制数。不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同。
+
+```c++
+type *var-name;
+```
+
+## C++ 中使用指针
+
+使用指针时会频繁进行以下几个操作：定义一个指针变量、把变量地址赋值给指针、访问指针变量中可用地址的值。这些是通过使用一元运算符 ***** 来返回位于操作数所指定地址的变量的值。
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{
+    int  var = 20;   // 实际变量的声明
+    int  *ip;        // 指针变量的声明
+
+    ip = &var;       // 在指针变量中存储 var 的地址
+
+    cout << "Value of var variable: ";
+    cout << var << endl;
+
+    // 输出在指针变量中存储的地址
+    cout << "Address stored in ip variable: ";
+    cout << ip << endl;
+
+    // 访问指针中地址的值
+    cout << "Value of *ip variable: ";
+    cout << *ip << endl;
+    return 0;
+}
+```
+
+## C++ 指针详解
+
+在 C++ 中，有很多指针相关的概念，这些概念都很简单，但是都很重要。下面列出了 C++ 程序员必须清楚的一些与指针相关的重要概念：
+
+| 概念                                                         | 描述                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [C++ Null 指针](https://www.w3cschool.cn/cpp/cpp-null-pointers.html) | C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 |
+| [C++ 指针的算术运算](https://www.w3cschool.cn/cpp/cpp-pointer-arithmetic.html) | 可以对指针进行四种算术运算：++、--、+、-                     |
+| [C++ 指针 vs 数组](https://www.w3cschool.cn/cpp/cpp-pointers-vs-arrays.html) | 指针和数组之间有着密切的关系。                               |
+| [C++ 指针数组](https://www.w3cschool.cn/cpp/cpp-array-of-pointers.html) | 可以定义用来存储指针的数组。                                 |
+| [C++ 指向指针的指针](https://www.w3cschool.cn/cpp/cpp-pointer-to-pointer.html) | C++ 允许指向指针的指针。                                     |
+| [C++ 传递指针给函数](https://www.w3cschool.cn/cpp/cpp-passing-pointers-to-functions.html) | 通过引用或地址传递参数，使传递的参数在调用函数中被改变。     |
+| [C++ 从函数返回指针](https://www.w3cschool.cn/cpp/cpp-return-pointer-from-functions.html) | C++ 允许函数返回指针到局部变量、静态变量和动态内存分配。     |
+
+### C++ Null 指针
+
+在变量声明的时候，如果没有确切的地址可以赋值，为指针变量赋一个 NULL 值是一个良好的编程习惯。赋为 NULL 值的指针被称为**空**指针。
+
+NULL 指针是一个定义在标准库中的值为零的常量。
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{
+   int  *ptr = NULL;
+
+   cout << "ptr 的值是 " << ptr ;
+ 
+   return 0;
+}
+```
+
+在大多数的操作系统上，程序不允许访问地址为 0 的内存，因为**该内存是操作系统保留的**。然而，内存地址 0 有特别重要的意义，它表明该指针不指向一个可访问的内存位置。但按照惯例，**如果指针包含空值（零值），则假定它不指向任何东西**。
+
+**如需检查一个空指针，您可以使用 if 语句**，如下所示：
+
+```c++
+if(ptr)     /* 如果 p 非空，则完成 */
+if(!ptr)    /* 如果 p 为空，则完成 */
+```
+
+### C++ 指针的算术运算
+
+指针是一个用数值表示的地址。因此，您可以对指针执行算术运算。可以对指针进行四种算术运算：++、--、+、-。
+
+#### 递增一个指针
+
+我们喜欢在程序中使用指针代替数组，因为变量指针可以递增，而数组不能递增，因为数组是一个**常量指针**。
+
+指针在递增时，是移动了真实类型占用的内存byte的大小，例如 int* 每次递增移动4个byte
+
+```c++
+#include <iostream>
+
+using namespace std;
+const int MAX = 3;
+
+int main ()
+{
+   int  var[MAX] = {10, 100, 200};
+   int  *ptr;
+
+   // 指针中的数组地址
+   ptr = var;
+   for (int i = 0; i < MAX; i++)
+   {
+      cout << "Address of var[" << i << "] = ";
+      cout << ptr << endl;
+
+      cout << "Value of var[" << i << "] = ";
+      cout << *ptr << endl;
+
+      // 移动到下一个位置
+      ptr++;
+   }
+   return 0;
+}
+```
+
+#### 递减一个指针
+
+同样地，对指针进行递减运算，即把值减去其数据类型的字节数。
+
+#### 指针的比较
+
+指针可以用关系运算符进行比较，如 ==、< 和 >。如果 p1 和 p2 指向两个相关的变量，比如同一个数组中的不同元素，则可对 p1 和 p2 进行大小比较。
+
+### C++指针 vs 数组
+
+指针和数组在很多情况下是可以互换的，然而，指针和数组并不是完全互换的。
+
+一个数组名对应一个**指针常量**，只要不改变数组的值，仍然可以用指针形式的表达式。
+
+```c++
+#include <iostream>
+
+using namespace std;
+const int MAX = 3;
+
+int main ()
+{
+    int  var[MAX] = {10, 100, 200};
+
+    for (int i = 0; i < MAX; i++)
+    {
+        *var = i;    // 这是正确的语法
+        var++;       // 这是不正确的
+    }
+    
+    *(var + 2) = 500;
+    return 0;
+}
+```
+
+### C++ 指针数组
+
+ptr 中的每个元素，都是一个指向 int 值的指针。
+
+```c++
+#include <iostream>
+ 
+using namespace std;
+const int MAX = 3;
+ 
+int main ()
+{
+   int  var[MAX] = {10, 100, 200};
+   int *ptr[MAX];
+ 
+   for (int i = 0; i < MAX; i++)
+   {
+      ptr[i] = &var[i]; // 赋值为整数的地址
+   }
+   for (int i = 0; i < MAX; i++)
+   {
+      cout << "Value of var[" << i << "] = ";
+      cout << *ptr[i] << endl;
+   }
+   return 0;
+}
+```
+
+### C++ 指向指针的指针（多级间接寻址）
+
+指向指针的指针是一种多级间接寻址的形式，或者说是一个指针链。通常，一个指针包含一个变量的地址。当我们定义一个指向指针的指针时，第一个指针包含了第二个指针的地址，第二个指针指向包含实际值的位置。
+
+一个指向 int 类型指针的指针：
+
+```c++
+#include <iostream>
+ 
+using namespace std;
+ 
+int main ()
+{
+   int  var;
+   int  *ptr;
+   int  **pptr;
+
+   var = 3000;
+
+   // 获取 var 的地址
+   ptr = &var;
+
+   // 使用运算符 & 获取 ptr 的地址
+   pptr = &ptr;
+
+   // 使用 pptr 获取值
+   cout << "Value of var :" << var << endl;
+   cout << "Value available at *ptr :" << *ptr << endl;
+   cout << "Value available at **pptr :" << **pptr << endl;
+
+   return 0;
+}
+```
+
+### C++ 传递指针给函数
+
+C++ 允许您传递指针给函数，只需要简单地声明函数参数为指针类型即可。
+
+```c++
+#include <iostream>
+#include <ctime>
+ 
+using namespace std;
+void getSeconds(unsigned long *par);
+
+int main ()
+{
+   unsigned long sec;
+
+
+   getSeconds( &sec );
+
+   // 输出实际值
+   cout << "Number of seconds :" << sec << endl;
+
+   return 0;
+}
+
+void getSeconds(unsigned long *par)
+{
+   // 获取当前的秒数
+   *par = time( NULL );
+   return;
+}
+```
+
+```c++
+#include <iostream>
+using namespace std;
+ 
+// 函数声明
+double getAverage(int *arr, int size);
+ 
+int main ()
+{
+   // 带有 5 个元素的整型数组
+   int balance[5] = {1000, 2, 3, 17, 50};
+   double avg;
+ 
+   // 传递一个指向数组的指针作为参数
+   avg = getAverage( balance, 5 ) ;
+ 
+   // 输出返回值
+   cout << "Average value is: " << avg << endl; 
+    
+   return 0;
+}
+
+double getAverage(int *arr, int size)
+{
+  int    i, sum = 0;       
+  double avg;          
+ 
+  for (i = 0; i < size; ++i)
+  {
+    sum += arr[i];
+   }
+ 
+  avg = double(sum) / size;
+ 
+  return avg;
+}
+```
+
+### C++ 从函数返回指针
+
+C++ 允许您从函数返回指针。为了做到这点，您必须声明一个返回指针的函数。
+
+```
+int* myFunction() {
+	auto number = 100;
+	return &number;
 }
 ```
 
