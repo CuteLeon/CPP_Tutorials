@@ -18,16 +18,34 @@ int main()
 	cout << "Hello World!" << endl;
 
 	// Pointer
-    int  var = 20;
-    int* ip = &var;
-    cout << "Value of var variable: " << var << endl;
-    cout << "Address stored in ip variable: " << ip << endl;
-    *ip = 35;
-    cout << "Value of *ip variable: " << *ip << endl;
+	int  var = 20;
+	int* ip = &var;
+	cout << "Value of var variable: " << var << endl;
+	cout << "Address stored in ip variable: " << ip << endl;
+	*ip = 35;
+	cout << "Value of *ip variable: " << *ip << endl;
 
 	auto* penPtr = &pen;
 	penPtr->mPenColor = EnumDemo::Colors::Red;
 	cout << "mPenColor: " << (int)pen.mPenColor << endl;
+
+	// Reference
+	int i;
+	double d;
+	int& r = i;
+	double& s = d;
+	i = 5;
+	cout << "Value of i : " << i << endl;
+	cout << "Value of i reference : " << r << endl;
+	r = 6;
+	cout << "Value of i : " << i << endl;
+	cout << "Value of i reference : " << r << endl;
+	d = 11.7;
+	cout << "Value of d : " << d << endl;
+	cout << "Value of d reference : " << s << endl;
+	s = 23.5;
+	cout << "Value of d : " << d << endl;
+	cout << "Value of d reference : " << s << endl;
 
 	system("pause");
 	return 0;
