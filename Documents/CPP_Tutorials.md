@@ -519,3 +519,23 @@ int main()
    return 0;
 } 
 ```
+
+## C++ 中的类型限定符
+
+类型限定符提供了变量的额外信息。
+
+| 限定符   | 含义                                                         |
+| :------- | :----------------------------------------------------------- |
+| const    | **const** 类型的对象在程序执行期间不能被修改改变。           |
+| volatile | 修饰符 **volatile** 告诉编译器，变量的值可能以程序未明确指定的方式被改变，避免变量被其它线程修改，而当前代码并未去重新读取变量的内存的最新数据 |
+| restrict | 由 **restrict** 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。 |
+
+```c++
+const std::string Handler::GetName(const Person person)
+{
+	// const Person person: 方法执行期间，person对象的成员无法被修改
+	// const std::string: 方法执行期间，当前Handler类型对象的成员无法被修改，const关键字也可以被放置于方法圆括号名称后面
+    return mName;
+}
+```
+
