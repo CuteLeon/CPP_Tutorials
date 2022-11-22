@@ -738,3 +738,62 @@ void write_extern(void)
 | Cast                 | [强制转换运算符](https://www.w3cschool.cn/cpp/cpp-casting-operators.html)把一种数据类型转换为另一种数据类型。例如，int(2.2000) 将返回 2。 |
 | &                    | [指针运算符 &](https://www.w3cschool.cn/cpp/cpp-pointer-operators.html) 返回变量的地址。例如 &a; 将给出变量的实际地址。 |
 | *                    | [指针运算符 *](https://www.w3cschool.cn/cpp/cpp-pointer-operators.html) 指向一个变量。例如，*var; 将指向变量 var。 |
+
+## 循环类型
+
+C++ 编程语言提供了以下几种循环类型。
+
+| 循环类型                                                     | 描述                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [while 循环](https://www.w3cschool.cn/cpp/cpp-while-loop.html) | 当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。 |
+| [for 循环](https://www.w3cschool.cn/cpp/cpp-for-loop.html)   | 多次执行一个语句序列，简化管理循环变量的代码。               |
+| [do...while 循环](https://www.w3cschool.cn/cpp/cpp-do-while-loop.html) | 除了它是在循环主体结尾测试条件外，其他与 while 语句类似。    |
+| [嵌套循环](https://www.w3cschool.cn/cpp/cpp-nested-loops.html) | 您可以在 while、for 或 do..while 循环内使用一个或多个循环。  |
+
+## 循环控制语句
+
+循环控制语句更改执行的正常序列。当执行离开一个范围时，所有在该范围中创建的自动对象都会被销毁。
+
+C++ 提供了下列的控制语句。点击链接查看每个语句的细节。
+
+| 控制语句                                                     | 描述                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [break 语句](https://www.w3cschool.cn/cpp/cpp-break-statement.html) | 终止 **loop** 或 **switch** 语句，程序流将继续执行紧接着 loop 或 switch 的下一条语句。 |
+| [continue 语句](https://www.w3cschool.cn/cpp/cpp-continue-statement.html) | 引起循环跳过主体的剩余部分，立即重新开始测试条件。           |
+| [goto 语句](https://www.w3cschool.cn/cpp/cpp-goto-statement.html) | 将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句。 |
+
+## 无限循环
+
+如果条件永远不为假，则循环将变成无限循环。**for** 循环在传统意义上可用于实现无限循环。由于构成循环的三个表达式中任何一个都不是必需的，您可以将某些条件表达式留空来构成一个无限循环。
+
+```c++
+#include <iostream>
+using namespace std;
+ 
+int main ()
+{
+    for( ; ; ){
+        printf("This loop will run forever.\n");
+    }
+    return 0;
+}
+```
+
+当条件表达式不存在时，它被假设为真。您也可以设置一个初始值和增量表达式，但是一般情况下，C++ 程序员偏向于使用 for(;;) 结构来表示一个无限循环。
+
+# C++ 判断
+
+判断结构要求程序员指定一个或多个要评估或测试的条件，以及条件为真时要执行的语句（必需的）和条件为假时要执行的语句（可选的）。
+
+## 判断语句
+
+C++ 编程语言提供了以下类型的判断语句。点击链接查看每个语句的细节。
+
+| 语句                                                         | 描述                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [if 语句](https://www.w3cschool.cn/cpp/cpp-if.html)          | 一个 **if 语句** 由一个布尔表达式后跟一个或多个语句组成。    |
+| [if...else 语句](https://www.w3cschool.cn/cpp/cpp-if-else.html) | 一个 **if 语句** 后可跟一个可选的 **else 语句**，else 语句在布尔表达式为假时执行。 |
+| [嵌套 if 语句](https://www.w3cschool.cn/cpp/cpp-nested-if.html) | 您可以在一个 **if** 或 **else if** 语句内使用另一个 **if** 或 **else if** 语句。 |
+| [switch 语句](https://www.w3cschool.cn/cpp/cpp-switch.html)  | 一个 **switch** 语句允许测试一个变量等于多个值时的情况。     |
+| [嵌套 switch 语句](https://www.w3cschool.cn/cpp/cpp-nested-switch.html) | 您可以在一个 **switch** 语句内使用另一个 **switch** 语句。   |
+
