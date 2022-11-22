@@ -814,6 +814,69 @@ C++ 编程语言提供了以下几种循环类型。
 | [do...while 循环](https://www.w3cschool.cn/cpp/cpp-do-while-loop.html) | 除了它是在循环主体结尾测试条件外，其他与 while 语句类似。    |
 | [嵌套循环](https://www.w3cschool.cn/cpp/cpp-nested-loops.html) | 您可以在 while、for 或 do..while 循环内使用一个或多个循环。  |
 
+### while
+
+只要给定的条件为真，**while** 循环语句会重复执行一个目标语句。
+
+```c++
+while(condition)
+{
+   statement(s);
+}
+```
+
+### for
+
+**for** 循环允许您编写一个执行特定次数的循环的重复控制结构。
+
+```c++
+for ( init; condition; increment )
+{
+   statement(s);
+}
+```
+
+1. **init** 会首先被执行，且只会执行一次。这一步允许您声明并初始化任何循环控制变量。您也可以不在这里写任何语句，只要有一个分号出现即可。
+2. 接下来，会判断 **condition**。如果为真，则执行循环主体。如果为假，则不执行循环主体，且控制流会跳转到紧接着 for 循环的下一条语句。
+3. 在执行完 for 循环主体后，控制流会跳回上面的 **increment** 语句。该语句允许您更新循环控制变量。该语句可以留空，只要在条件后有一个分号出现即可。
+4. 条件再次被判断。如果为真，则执行循环，这个过程会不断重复（循环主体，然后增加步值，再然后重新判断条件）。在条件变为假时，for 循环终止。
+
+### for (:)
+
+遍历集合内每一个元素
+
+```c++
+int array[10] = {0,1,2,3,4,5,6,7,8,9};
+// 只读
+for(int number : array){
+   std::cout<<number<<std::endl;
+}
+// 通过引用修改
+for(int& number : array){
+   std::cout<<number<<std::endl;
+}
+```
+
+### do {} while
+
+不像 **for** 和 **while** 循环，它们是在循环头部测试循环条件。**do...while** 循环是在循环的尾部检查它的条件。
+
+**do...while** 循环与 while 循环类似，但是 do...while 循环会确保至少执行一次循环。
+
+```c++
+do
+{
+   statement(s);
+
+} while(condition);
+```
+
+请注意，条件表达式出现在循环的尾部，所以循环中的 statement(s) 会在条件被测试之前至少执行一次。
+
+如果条件为真，控制流会跳转回上面的 do，然后重新执行循环中的 statement(s)。这个过程会不断重复，直到给定条件变为假为止。
+
+##  
+
 ## 循环控制语句
 
 循环控制语句更改执行的正常序列。当执行离开一个范围时，所有在该范围中创建的自动对象都会被销毁。
@@ -860,6 +923,35 @@ C++ 编程语言提供了以下类型的判断语句。点击链接查看每个�
 | [嵌套 if 语句](https://www.w3cschool.cn/cpp/cpp-nested-if.html) | 您可以在一个 **if** 或 **else if** 语句内使用另一个 **if** 或 **else if** 语句。 |
 | [switch 语句](https://www.w3cschool.cn/cpp/cpp-switch.html)  | 一个 **switch** 语句允许测试一个变量等于多个值时的情况。     |
 | [嵌套 switch 语句](https://www.w3cschool.cn/cpp/cpp-nested-switch.html) | 您可以在一个 **switch** 语句内使用另一个 **switch** 语句。   |
+
+### switch
+
+一个 **switch** 语句允许测试一个变量等于多个值时的情况。每个值称为一个 case，且被测试的变量会对每个 **switch case** 进行检查。
+
+```c++
+switch(expression){
+    case constant-expression  :
+       statement(s);
+       break; // 可选的
+    case constant-expression  :
+       statement(s);
+       break; // 可选的
+  
+    // 您可以有任意数量的 case 语句
+    default : // 可选的
+       statement(s);
+}
+```
+
+**switch** 语句必须遵循下面的规则：
+
+- **switch** 语句中的 **expression** 必须是一个整型或枚举类型，或者是一个 class 类型，其中 class 有一个单一的转换函数将其转换为整型或枚举类型。
+- 在一个 switch 中可以有任意数量的 case 语句。每个 case 后跟一个要比较的值和一个冒号。
+- case 的 **constant-expression** 必须与 switch 中的变量具有相同的数据类型，且必须是一个常量或字面量。
+- 当被测试的变量等于 case 中的常量时，case 后跟的语句将被执行，直到遇到 **break** 语句为止。
+- 当遇到 **break** 语句时，switch 终止，控制流将跳转到 switch 语句后的下一行。
+- **不是每一个 case 都需要包含 break。如果 case 语句不包含 break，控制流将会 *继续* 后续的 case，直到遇到 break 为止。**
+- 一个 **switch** 语句可以有一个可选的 **default** case，出现在 switch 的结尾。default case 可用于在上面所有 case 都不为真时执行一个任务。default case 中的 **break** 语句不是必需的。
 
 # C++ 函数
 
@@ -1081,6 +1173,123 @@ int main (){
         cout << setw( 7 )<< j << setw( 13 ) << n[ j ] << endl;
     }
     return 0;
+}
+```
+
+## 多维数组
+
+C++ 支持多维数组。多维数组声明的一般形式如下：
+
+```c++
+type name[size1][size2]...[sizeN];
+int threedim[5][10][4];
+```
+
+### 初始化二维数组
+
+多维数组可以通过在括号内为每行指定值来进行初始化。下面是一个带有 3 行 4 列的数组。
+
+```c++
+int a[3][4] = {  
+ {0, 1, 2, 3} ,   /*  初始化索引号为 0 的行 */
+ {4, 5, 6, 7} ,   /*  初始化索引号为 1 的行 */
+ {8, 9, 10, 11}   /*  初始化索引号为 2 的行 */
+};
+
+int a[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11};
+```
+
+### 访问二维数组元素
+
+二维数组中的元素是通过使用下标（即数组的行索引和列索引）来访问的。例如：
+
+```c++
+int val = a[2][3];
+```
+
+## C++ 指向数组的指针
+
+数组名是一个指向数组中第一个元素的常量指针。
+
+**balance** 是一个指向 &balance[0] 的指针，即数组 balance 的第一个元素的地址。
+
+```c++
+double *p;
+double balance[10];
+p = balance;
+```
+
+使用数组名作为常量指针是合法的，反之亦然。因此，*(balance + 4) 是一种访问 balance[4] 数据的合法方式。
+
+```c++
+#include <iostream>
+using namespace std;
+ 
+int main ()
+{
+   // 带有 5 个元素的整型数组
+   double balance[5] = {1000.0, 2.0, 3.4, 17.0, 50.0};
+   double *p;
+   p = balance;
+ 
+   for ( int i = 0; i < 5; i++ )
+   {
+       cout << *(p + i) << endl;
+       cout << *(balance + i) << endl;
+   }
+   return 0;
+}
+```
+
+### C++ 传递数组给函数
+
+C++ 不允许向函数传递一个完整的数组作为参数，但是，您可以通过指定不带索引的数组名来传递一个指向数组的指针。
+
+如果您想要在函数中传递一个一维数组作为参数，您必须以下面三种方式来声明函数形式参数，这三种声明方式的结果是一样的，因为每种方式都会告诉编译器将要接收一个整型指针。同样地，您也可以传递一个多维数组作为形式参数。
+
+```c++
+int balance[5] = {1000, 2, 3, 17, 50};
+double avg;
+avg = getAverage(balance, 5) ;
+
+double getAverage(int* arr, int size) {}
+double getAverage(int arr[10], int size) {}
+double getAverage(int arr[], int size) {}
+```
+
+### C++ 从函数返回数组
+
+C++ 不允许返回一个完整的数组作为函数的参数。但是，您可以通过指定不带索引的数组名来返回一个指向数组的指针。
+
+如果您想要从函数返回一个一维数组，您必须声明一个返回指针的函数。
+
+```c++
+// int* myFunction() {}
+
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int *p;
+p = getRandom();
+for ( int i = 0; i < 10; i++ )
+{
+    cout << *(p + i) << endl;
+}
+
+int * getRandom( )
+{
+    static int  r[10];
+
+    srand( (unsigned)time( NULL ) );
+    for (int i = 0; i < 10; ++i)
+    {
+        r[i] = rand();
+        cout << r[i] << endl;
+    }
+
+    return r;
 }
 ```
 
