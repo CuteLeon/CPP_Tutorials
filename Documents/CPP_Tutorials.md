@@ -657,8 +657,8 @@ void write_extern(void)
 | *      | 把两个操作数相乘                                             | A * B 将得到 200 |
 | /      | 分子除以分母                                                 | B / A 将得到 2   |
 | %      | 取模运算符，整除后的余数                                     | B % A 将得到 0   |
-| ++     | [自增运算符](https://www.w3cschool.cn/cpp/cpp-increment-decrement-operators.html)，整数值增加 1 | A++ 将得到 11    |
-| --     | [自减运算符](https://www.w3cschool.cn/cpp/cpp-increment-decrement-operators.html)，整数值减少 1 | A-- 将得到 9     |
+| ++     | 自增运算符，整数值增加 1 | A++ 将得到 11    |
+| --     | 自减运算符，整数值减少 1 | A-- 将得到 9     |
 
 ## 关系运算符
 
@@ -731,13 +731,13 @@ void write_extern(void)
 
 | 运算符               | 描述                                                         |
 | :------------------- | :----------------------------------------------------------- |
-| sizeof               | [sizeof 运算符](https://www.w3cschool.cn/cpp/cpp-sizeof-operator.html)返回变量的大小。例如，sizeof(a) 将返回 4，其中 a 是整数。 |
-| Condition ? X : Y    | [条件运算符](https://www.w3cschool.cn/cpp/cpp-conditional-operator.html)。如果 Condition 为真 ? 则值为 X : 否则值为 Y。 |
-| ,                    | [逗号运算符](https://www.w3cschool.cn/cpp/cpp-comma-operator.html)会顺序执行一系列运算。整个逗号表达式的值是以逗号分隔的列表中的最后一个表达式的值。 |
-| .（点）和 ->（箭头） | [成员运算符](https://www.w3cschool.cn/cpp/cpp-member-operators.html)用于引用类、结构和共用体的成员。 |
-| Cast                 | [强制转换运算符](https://www.w3cschool.cn/cpp/cpp-casting-operators.html)把一种数据类型转换为另一种数据类型。例如，int(2.2000) 将返回 2。 |
-| &                    | [指针运算符 &](https://www.w3cschool.cn/cpp/cpp-pointer-operators.html) 返回变量的地址。例如 &a; 将给出变量的实际地址。 |
-| *                    | [指针运算符 *](https://www.w3cschool.cn/cpp/cpp-pointer-operators.html) 指向一个变量。例如，*var; 将指向变量 var。 |
+| sizeof               | sizeof 运算符返回变量的大小。例如，sizeof(a) 将返回 4，其中 a 是整数。 |
+| Condition ? X : Y    | 条件运算符。如果 Condition 为真 ? 则值为 X : 否则值为 Y。 |
+| ,                    | 逗号运算符会顺序执行一系列运算。整个逗号表达式的值是以逗号分隔的列表中的最后一个表达式的值。 |
+| .（点）和 ->（箭头） | 成员运算符用于引用类、结构和共用体的成员。 |
+| Cast                 | 强制转换运算符把一种数据类型转换为另一种数据类型。例如，int(2.2000) 将返回 2。 |
+| &                    | 指针运算符 & 返回变量的地址。例如 &a; 将给出变量的实际地址。 |
+| *                    | 指针运算符 * 指向一个变量。例如，*var; 将指向变量 var。 |
 
 ### C++ 逗号运算符
 
@@ -809,10 +809,10 @@ C++ 编程语言提供了以下几种循环类型。
 
 | 循环类型                                                     | 描述                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [while 循环](https://www.w3cschool.cn/cpp/cpp-while-loop.html) | 当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。 |
-| [for 循环](https://www.w3cschool.cn/cpp/cpp-for-loop.html)   | 多次执行一个语句序列，简化管理循环变量的代码。               |
-| [do...while 循环](https://www.w3cschool.cn/cpp/cpp-do-while-loop.html) | 除了它是在循环主体结尾测试条件外，其他与 while 语句类似。    |
-| [嵌套循环](https://www.w3cschool.cn/cpp/cpp-nested-loops.html) | 您可以在 while、for 或 do..while 循环内使用一个或多个循环。  |
+| while 循环 | 当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。 |
+| for 循环   | 多次执行一个语句序列，简化管理循环变量的代码。               |
+| do...while 循环 | 除了它是在循环主体结尾测试条件外，其他与 while 语句类似。    |
+| 嵌套循环 | 您可以在 while、for 或 do..while 循环内使用一个或多个循环。  |
 
 ### while
 
@@ -885,9 +885,9 @@ C++ 提供了下列的控制语句。点击链接查看每个语句的细节。
 
 | 控制语句                                                     | 描述                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [break 语句](https://www.w3cschool.cn/cpp/cpp-break-statement.html) | 终止 **loop** 或 **switch** 语句，程序流将继续执行紧接着 loop 或 switch 的下一条语句。 |
-| [continue 语句](https://www.w3cschool.cn/cpp/cpp-continue-statement.html) | 引起循环跳过主体的剩余部分，立即重新开始测试条件。           |
-| [goto 语句](https://www.w3cschool.cn/cpp/cpp-goto-statement.html) | 将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句。 |
+| break 语句 | 终止 **loop** 或 **switch** 语句，程序流将继续执行紧接着 loop 或 switch 的下一条语句。 |
+| continue 语句 | 引起循环跳过主体的剩余部分，立即重新开始测试条件。           |
+| goto 语句 | 将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句。 |
 
 ## 无限循环
 
@@ -918,11 +918,11 @@ C++ 编程语言提供了以下类型的判断语句。点击链接查看每个�
 
 | 语句                                                         | 描述                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [if 语句](https://www.w3cschool.cn/cpp/cpp-if.html)          | 一个 **if 语句** 由一个布尔表达式后跟一个或多个语句组成。    |
-| [if...else 语句](https://www.w3cschool.cn/cpp/cpp-if-else.html) | 一个 **if 语句** 后可跟一个可选的 **else 语句**，else 语句在布尔表达式为假时执行。 |
-| [嵌套 if 语句](https://www.w3cschool.cn/cpp/cpp-nested-if.html) | 您可以在一个 **if** 或 **else if** 语句内使用另一个 **if** 或 **else if** 语句。 |
-| [switch 语句](https://www.w3cschool.cn/cpp/cpp-switch.html)  | 一个 **switch** 语句允许测试一个变量等于多个值时的情况。     |
-| [嵌套 switch 语句](https://www.w3cschool.cn/cpp/cpp-nested-switch.html) | 您可以在一个 **switch** 语句内使用另一个 **switch** 语句。   |
+| if 语句          | 一个 **if 语句** 由一个布尔表达式后跟一个或多个语句组成。    |
+| if...else 语句 | 一个 **if 语句** 后可跟一个可选的 **else 语句**，else 语句在布尔表达式为假时执行。 |
+| 嵌套 if 语句 | 您可以在一个 **if** 或 **else if** 语句内使用另一个 **if** 或 **else if** 语句。 |
+| switch 语句  | 一个 **switch** 语句允许测试一个变量等于多个值时的情况。     |
+| 嵌套 switch 语句 | 您可以在一个 **switch** 语句内使用另一个 **switch** 语句。   |
 
 ### switch
 
@@ -1025,11 +1025,11 @@ int max(int, int);
 
 当调用函数时，有两种向函数传递参数的方式：
 
-| 调用类型                                                     | 描述                                                         |
-| :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [传值调用](https://www.w3cschool.cn/cpp/cpp-function-call-by-value.html) | 该方法把参数的实际值复制给函数的形式参数。在这种情况下，修改函数内的形式参数对实际参数没有影响。 |
-| [指针调用](https://www.w3cschool.cn/cpp/cpp-function-call-by-pointer.html) | 该方法把参数的地址复制给形式参数。在函数内，该地址用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。 |
-| [引用调用](https://www.w3cschool.cn/cpp/cpp-function-call-by-reference.html) | 该方法把参数的引用复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。 |
+| 调用类型 | 描述                                                         |
+| :------- | :----------------------------------------------------------- |
+| 传值调用 | 该方法把参数的实际值复制给函数的形式参数。在这种情况下，修改函数内的形式参数对实际参数没有影响。 |
+| 指针调用 | 该方法把参数的地址复制给形式参数。在函数内，该地址用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。 |
+| 引用调用 | 该方法把参数的引用复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。 |
 
 ## 参数的默认值
 
@@ -1422,13 +1422,13 @@ int main ()
 
 | 概念                                                         | 描述                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [C++ Null 指针](https://www.w3cschool.cn/cpp/cpp-null-pointers.html) | C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 |
-| [C++ 指针的算术运算](https://www.w3cschool.cn/cpp/cpp-pointer-arithmetic.html) | 可以对指针进行四种算术运算：++、--、+、-                     |
-| [C++ 指针 vs 数组](https://www.w3cschool.cn/cpp/cpp-pointers-vs-arrays.html) | 指针和数组之间有着密切的关系。                               |
-| [C++ 指针数组](https://www.w3cschool.cn/cpp/cpp-array-of-pointers.html) | 可以定义用来存储指针的数组。                                 |
-| [C++ 指向指针的指针](https://www.w3cschool.cn/cpp/cpp-pointer-to-pointer.html) | C++ 允许指向指针的指针。                                     |
-| [C++ 传递指针给函数](https://www.w3cschool.cn/cpp/cpp-passing-pointers-to-functions.html) | 通过引用或地址传递参数，使传递的参数在调用函数中被改变。     |
-| [C++ 从函数返回指针](https://www.w3cschool.cn/cpp/cpp-return-pointer-from-functions.html) | C++ 允许函数返回指针到局部变量、静态变量和动态内存分配。     |
+| C++ Null 指针 | C++ 支持空指针。NULL 指针是一个定义在标准库中的值为零的常量。 |
+| C++ 指针的算术运算 | 可以对指针进行四种算术运算：++、--、+、-                     |
+| C++ 指针 vs 数组 | 指针和数组之间有着密切的关系。                               |
+| C++ 指针数组 | 可以定义用来存储指针的数组。                                 |
+| C++ 指向指针的指针 | C++ 允许指向指针的指针。                                     |
+| C++ 传递指针给函数 | 通过引用或地址传递参数，使传递的参数在调用函数中被改变。     |
+| C++ 从函数返回指针 | C++ 允许函数返回指针到局部变量、静态变量和动态内存分配。     |
 
 ### C++ Null 指针
 
@@ -1765,8 +1765,6 @@ void swap(int& x, int& y)
 
 当函数返回一个引用时，则返回一个指向返回值的隐式指针。这样，函数就可以放在赋值语句的左边。
 
-
-
 ```c++
 #include <iostream>
 #include <ctime>
@@ -1813,5 +1811,347 @@ int& func() {
    static int x;
    return x;     // 安全，x 在函数作用域外依然是有效的
 }
+```
+
+# C++ 日期 & 时间
+
+C++ 标准库没有提供所谓的日期类型。C++ 继承了 C 语言用于日期和时间操作的结构和函数。为了使用日期和时间相关的函数和结构，需要在 C++ 程序中引用 \<ctime\> 头文件。
+
+有四个与时间相关的类型：**clock_t、time_t、size_t** 和 **tm**。类型 clock_t、size_t 和 time_t 能够把系统时间和日期表示为某种整数。
+
+```c++
+struct tm {
+    int tm_sec;   // 秒，正常范围从 0 到 59，但允许至 61
+    int tm_min;   // 分，范围从 0 到 59
+    int tm_hour;  // 小时，范围从 0 到 23
+    int tm_mday;  // 一月中的第几天，范围从 1 到 31
+    int tm_mon;   // 月，范围从 0 到 11
+    int tm_year;  // 自 1900 年起的年数
+    int tm_wday;  // 一周中的第几天，范围从 0 到 6，从星期日算起
+    int tm_yday;  // 一年中的第几天，范围从 0 到 365，从 1 月 1 日算起
+    int tm_isdst; // 夏令时
+}
+```
+
+| 序号 | 函数                                                         | 描述                                                         |
+| :--- | :----------------------------------------------------------- | ------------------------------------------------------------ |
+| 1    | **time_t time(time_t \*time);** | 该函数返回系统的当前日历时间，自 1970 年 1 月 1 日以来经过的秒数。如果系统没有时间，则返回 .1。 |
+| 2    | **char \*ctime(const time_t \*time);** | 该返回一个表示当地时间的字符串指针，字符串形式 *day month year hours:minutes:seconds year\n*。 |
+| 3    | **struct tm \*localtime(const time_t \*time);** | 该函数返回一个指向表示本地时间的 **tm** 结构的指针。         |
+| 4    | **clock_t clock(void);** | 该函数返回程序执行起（一般为程序的开头），处理器时钟所使用的时间。如果时间不可用，则返回 .1。 |
+| 5    | **char \* asctime ( const struct tm \* time );** | 该函数返回一个指向字符串的指针，字符串包含了 time 所指向结构中存储的信息，返回形式为：day month date hours:minutes:seconds year\n\0。 |
+| 6    | **struct tm \*gmtime(const time_t \*time);** | 该函数返回一个指向 time 的指针，time 为 tm 结构，用协调世界时（UTC）也被称为格林尼治标准时间（GMT）表示。 |
+| 7    | **time_t mktime(struct tm \*time);** | 该函数返回日历时间，相当于 time 所指向结构中存储的时间。     |
+| 8    | **double difftime ( time_t time2, time_t time1 );** | 该函数返回 time1 和 time2 之间相差的秒数。                   |
+| 9    | **size_t strftime();** | 该函数可用于格式化日期和时间为指定的格式。                   |
+
+## strftime() 格式占位符
+
+| %a   | 缩写的星期几名称                                          | Sun                      |
+| ---- | --------------------------------------------------------- | ------------------------ |
+| %A   | 完整的星期几名称                                          | Sunday                   |
+| %b   | 缩写的月份名称                                            | Mar                      |
+| %B   | 完整的月份名称                                            | March                    |
+| %c   | 日期和时间表示法                                          | Sun Aug 19 02:56:02 2012 |
+| %d   | 一月中的第几天（01-31）                                   | 19                       |
+| %H   | 24 小时格式的小时（00-23）                                | 14                       |
+| %I   | 12 小时格式的小时（01-12）                                | 05                       |
+| %j   | 一年中的第几天（001-366）                                 | 231                      |
+| %m   | 十进制数表示的月份（01-12）                               | 08                       |
+| %M   | 分（00-59）                                               | 55                       |
+| %p   | AM 或 PM 名称                                             | PM                       |
+| %S   | 秒（00-61）                                               | 02                       |
+| %U   | 一年中的第几周，以第一个星期日作为第一周的第一天（00-53） | 33                       |
+| %w   | 十进制数表示的星期几，星期日表示为 0（0-6）               | 4                        |
+| %W   | 一年中的第几周，以第一个星期一作为第一周的第一天（00-53） | 34                       |
+| %x   | 日期表示法                                                | 08/19/12                 |
+| %X   | 时间表示法                                                | 02:50:06                 |
+| %y   | 年份，最后两个数字（00-99）                               | 01                       |
+| %Y   | 年份                                                      | 2012                     |
+| %Z   | 时区的名称或缩写                                          | CDT                      |
+| %%   | 一个 % 符号                                               | %                        |
+
+## 当前日期和时间
+
+```c++
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int main( )
+{
+	time_t now = time(0);
+	char dt[100];
+	ctime_s(dt, 100, &now);
+	cout << R"(本地日期和时间：)" << dt << endl;
+	tm gmtm;
+	gmtime_s(&gmtm, &now);
+	asctime_s(dt, &gmtm);
+	cout << "UTC 日期和时间：" << dt << endl;
+}
+```
+
+## 使用结构 tm 格式化时间
+
+**tm** 结构在 C/C++ 中处理日期和时间相关的操作时，显得尤为重要。tm 结构以 C 结构的形式保存日期和时间。大多数与时间相关的函数都使用了 tm 结构。
+
+```c++
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int main(){
+    // 基于当前系统的当前日期/时间
+    time_t now = time(0);
+    cout << "1970年1月1日到目前经过的秒数:" << now << endl;
+
+    tm *ltm = localtime(&now);
+
+    // 输出 tm 结构的各个组成部分
+    cout << "年: "<< 1900 + ltm->tm_year << endl;
+    cout << "月: "<< 1 + ltm->tm_mon<< endl;
+    cout << "日: "<<  ltm->tm_mday << endl;
+    cout << "时间: "<< 1 + ltm->tm_hour << ":";
+    cout << 1 + ltm->tm_min << ":";
+    cout << 1 + ltm->tm_sec << endl;
+} 
+```
+
+# C++ 基本的输入输出
+
+C++ 的 I/O 发生在流中，流是字节序列。如果字节流是从设备（如键盘、磁盘驱动器、网络连接等）流向内存，这叫做**输入操作**。如果字节流是从内存流向设备（如显示屏、打印机、磁盘驱动器、网络连接等），这叫做**输出操作**。
+
+**使用 cerr 流来显示错误消息，而其他的日志消息则使用 clog 流来输出。**
+
+## I/O 库头文件
+
+下列的头文件在 C++ 编程中很重要。
+
+| 头文件       | 函数和描述                                                   |
+| :----------- | :----------------------------------------------------------- |
+| \<iostream\> | 该文件定义了 **cin、cout、cerr** 和 **clog** 对象，分别对应于标准输入流、标准输出流、非缓冲标准错误流和缓冲标准错误流。 |
+| \<iomanip\>  | 该文件通过所谓的参数化的流操纵器（比如 **setw** 和 **setprecision**），来声明对执行标准化 I/O 有用的服务。 |
+| \<fstream\>  | 该文件为用户控制的文件处理声明服务。我们将在文件和流的相关章节讨论它的细节。 |
+
+## 标准输出流（cout）
+
+预定义的对象 **cout** 是 **ostream** 类的一个实例。cout 对象"连接"到标准输出设备，通常是显示屏。**cout** 是与流插入运算符 << 结合使用的，流插入运算符 << 在一个语句中可以多次使用，**endl** 用于在行末添加一个换行符。
+
+```c++
+#include <iostream>
+using namespace std;
+ 
+int main( ){
+    char str[] = "Hello C++";
+    cout << "Value of str is : " << str << endl; 
+} 
+```
+
+## 标准输入流（cin）
+
+预定义的对象 **cin** 是 **istream** 类的一个实例。cin 对象附属到标准输入设备，通常是键盘。**cin** 是与流提取运算符 >> 结合使用的。
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main(){
+    char name[50];
+    cout << "请输入您的名称： ";
+    cin >> name;
+    cout << "您的名称是： " << name << endl;   
+} 
+```
+
+流提取运算符 >> 在一个语句中可以多次使用。
+
+```c++
+cin >> name >> age;
+
+cin >> name;
+cin >> age;
+```
+
+## 标准错误流（cerr）
+
+预定义的对象 **cerr** 是 **ostream** 类的一个实例。cerr 对象附属到标准错误设备，通常也是显示屏，但是 **cerr** 对象是**非缓冲**的，且每个流插入到 cerr 都会立即输出。
+
+**cerr** 也是与流插入运算符 << 结合使用的
+
+```c++
+#include <iostream>
+using namespace std;
+ 
+int main(){
+    char str[] = "Unable to read....";
+    cerr << "Error message : " << str << endl; 
+} 
+```
+
+## 标准日志流（clog）
+
+预定义的对象 **clog** 是 **ostream** 类的一个实例。clog 对象附属到标准错误设备，通常也是显示屏，但是 **clog** 对象是**缓冲**的。这意味着每个流插入到 clog 都会先存储在缓冲区中，**直到缓冲填满或者缓冲区刷新时才会输出**。
+
+**clog** 也是与流插入运算符 << 结合使用的
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main(){
+    char str[] = "Unable to read....";
+    clog << "Error message : " << str << endl;
+} 
+```
+
+# C++ 数据结构
+
+C/C++ 数组允许定义可存储相同类型数据项的变量，但是**结构**是 C++ 中另一种用户自定义的可用的数据类型，它允许您存储不同类型的数据项。
+
+## 定义结构
+
+为了定义结构，您必须使用 **struct** 语句。struct 语句定义了一个包含多个成员的新的数据类型
+
+```c++
+struct [structure tag]{
+    member definition;
+    member definition;
+    ...
+    member definition;
+}[one or more structure variables];
+
+struct Books{
+    char title[50];
+    char author[50];
+    char subject[100];
+    int book_id;
+}book; 
+```
+
+## 访问结构成员
+
+为了访问结构的成员，我们使用**成员访问运算符（.）**。成员访问运算符是结构变量名称和我们要访问的结构成员之间的一个句号。您可以使用 **struct** 关键字来定义结构类型的变量。
+
+```c++
+#include <iostream>
+#include <cstring>
+ 
+using namespace std;
+ 
+struct Books{
+    char title[50];
+    char author[50];
+    char subject[100];
+    int book_id;
+};
+ 
+int main(){
+    struct Books Book1;        // 声明 Book1，类型为 Book
+    struct Books Book2;        // 声明 Book2，类型为 Book
+ 
+    // Book1 详述
+    strcpy( Book1.title, "Learn C++ Programming");
+    strcpy( Book1.author, "Chand Miyan"); 
+    strcpy( Book1.subject, "C++ Programming");
+    Book1.book_id = 6495407;
+
+    // Book2 详述
+    strcpy( Book2.title, "Telecom Billing");
+    strcpy( Book2.author, "Yakit Singha");
+    strcpy( Book2.subject, "Telecom");
+    Book2.book_id = 6495700;
+ 
+    // 输出 Book1 信息
+    cout << "Book 1 title : " << Book1.title <<endl;
+    cout << "Book 1 author : " << Book1.author <<endl;
+    cout << "Book 1 subject : " << Book1.subject <<endl;
+    cout << "Book 1 id : " << Book1.book_id <<endl;
+
+    // 输出 Book2 信息
+    cout << "Book 2 title : " << Book2.title <<endl;
+    cout << "Book 2 author : " << Book2.author <<endl;
+    cout << "Book 2 subject : " << Book2.subject <<endl;
+    cout << "Book 2 id : " << Book2.book_id <<endl;
+
+    return 0;
+}
+```
+
+## 结构作为函数参数
+
+您可以把结构作为函数参数，传参方式与其他类型的变量或指针类似。
+
+```c++
+#include <iostream>
+#include <cstring>
+ 
+using namespace std;
+void printBook( struct Books book );
+
+struct Books{
+    char title[50];
+    char author[50];
+    char subject[100];
+    int book_id;
+};
+ 
+int main(){
+    struct Books Book1;        // 声明 Book1，类型为 Book
+    struct Books Book2;        // 声明 Book2，类型为 Book
+ 
+    // Book1 详述
+    strcpy( Book1.title, "Learn C++ Programming");
+    strcpy( Book1.author, "Chand Miyan"); 
+    strcpy( Book1.subject, "C++ Programming");
+    Book1.book_id = 6495407;
+
+    // Book2 详述
+    strcpy( Book2.title, "Telecom Billing");
+    strcpy( Book2.author, "Yakit Singha");
+    strcpy( Book2.subject, "Telecom");
+    Book2.book_id = 6495700;
+ 
+    // 输出 Book1 信息
+    printBook( Book1 );
+
+    // 输出 Book2 信息
+    printBook( Book2 );
+
+    return 0;
+}
+void printBook( struct Books book ){
+    cout << "Book title : " << book.title <<endl;
+    cout << "Book author : " << book.author <<endl;
+    cout << "Book subject : " << book.subject <<endl;
+    cout << "Book id : " << book.book_id <<endl;
+}
+```
+
+## 指向结构的指针
+
+您可以定义指向结构的指针，方式与定义指向其他类型变量的指针相似
+
+```c++
+struct Books *struct_pointer;
+struct_pointer = &Book1;
+struct_pointer->title;
+```
+
+## typedef 关键字
+
+下面是一种更简单的定义结构的方式，您可以为创建的类型取一个"别名"。
+
+```c++
+typedef struct
+{
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+} Books;
+
+Books Book1, Book2;
 ```
 
