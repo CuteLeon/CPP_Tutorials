@@ -2,6 +2,8 @@
 class Shape
 {
 public:
+	virtual int getArea() = 0;
+
 	void setWidth(int w)
 	{
 		width = w;
