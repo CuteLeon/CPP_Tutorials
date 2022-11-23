@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "Line.h"
 #include "Box.h"
+#include "Rectangle.h"
 
 int main()
 {
@@ -21,6 +22,14 @@ int main()
 	// Static
 	cout << Line::getLineCount() << endl;
 	cout << line.getLineCount() << endl;
+
+	// Inheritance
+	Rectangle rect;
+	rect.setWidth(5);
+	rect.setHeight(7);
+	int area = rect.getArea();
+	cout << "Total area: " << rect.getArea() << endl;
+	cout << "Total paint cost: $" << rect.getCost(area) << endl;
 
 	system("pause");
 }
