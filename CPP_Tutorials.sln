@@ -5,7 +5,10 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{86210773-1BC3-4433-8CC4-1698FB05F7B2}"
 	ProjectSection(SolutionItems) = preProject
+		Documents\CPP_Advanced.md = Documents\CPP_Advanced.md
 		Documents\CPP_OOP.md = Documents\CPP_OOP.md
+		Documents\CPP_Resources.md = Documents\CPP_Resources.md
+		Documents\CPP_STL.md = Documents\CPP_STL.md
 		Documents\CPP_Tutorials.md = Documents\CPP_Tutorials.md
 		README.md = README.md
 	EndProjectSection
