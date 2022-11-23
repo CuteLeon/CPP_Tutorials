@@ -225,3 +225,113 @@ for(int i = 0; i < COL; i++) {
 }
 delete [] pvalue;
 ```
+
+# C++ 命名空间
+
+**命名空间**可作为附加信息来区分不同库中相同名称的函数、类、变量等。使用了命名空间即定义了上下文。本质上，命名空间就是定义了一个范围。
+
+## 定义命名空间
+
+命名空间的定义使用关键字 **namespace**，后跟命名空间的名称。
+
+```c++
+#include <iostream>
+using namespace std;
+
+// 第一个命名空间
+namespace first_space{
+    void func(){
+        cout << "Inside first_space" << endl;
+    }
+}
+// 第二个命名空间
+namespace second_space{
+    void func(){
+        cout << "Inside second_space" << endl;
+    }
+}
+int main ()
+{
+    // 调用第一个命名空间中的函数
+    first_space::func();
+
+    // 调用第二个命名空间中的函数
+    second_space::func(); 
+    return 0;
+}
+```
+
+## using 指令
+
+您可以使用 **using namespace** 指令，这样在使用命名空间时就可以不用在前面加上命名空间的名称。这个指令会告诉编译器，后续的代码将使用指定的命名空间中的名称。
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    return 0;
+}
+```
+
+using 指令也可以用来指定命名空间中的特定项目。
+
+```c++
+#include <iostream>
+using std::cout;
+
+int main ()
+{
+   cout << "std::endl is used with std!" << std::endl;  
+   return 0;
+}
+```
+
+**using** 指令引入的名称遵循正常的范围规则。名称从使用 **using** 指令开始是可见的，直到该范围结束。此时，在范围以外定义的同名实体是隐藏的。
+
+## 不连续的命名空间
+
+命名空间可以定义在几个不同的部分中，因此命名空间是由几个单独定义的部分组成的。一个命名空间的各个组成部分可以分散在多个文件中。所以，如果命名空间中的某个组成部分需要请求定义在另一个文件中的名称，则仍然需要声明该名称。
+
+## 嵌套的命名空间
+
+命名空间可以嵌套，您可以在一个命名空间中定义另一个命名空间，如下所示：
+
+```c++
+namespace namespace_name1 {
+   // 代码声明
+   namespace namespace_name2 {
+      // 代码声明
+   }
+}
+
+// 访问 namespace_name2 中的成员
+using namespace namespace_name1::namespace_name2;
+
+// 访问 namespace:name1 中的成员
+using namespace namespace_name1;
+```
+
+# C++ 模板
+
+模板是泛型编程的基础，泛型编程即以一种独立于任何特定类型的方式编写代码。
+
+模板是创建泛型类或函数的蓝图或公式。库容器，比如迭代器和算法，都是泛型编程的例子，它们都使用了模板的概念。
+
+每个容器都有一个单一的定义，比如 **向量**，我们可以定义许多不同类型的向量，比如 **vector \<int\>** 或 **vector \<string\>**。
+
+您可以使用模板来定义函数和类，接下来让我们一起来看看如何使用。
+
+## 函数模板
+
+模板函数定义的一般形式如下所示：
+
+```c++
+template <typename type> ret-type func-name(parameter list)
+{
+   // 函数的主体
+}  
+```
+
+在这里，type 是函数所使用的数据类型的占位符名称。这个名称可以在函数定义中使用
