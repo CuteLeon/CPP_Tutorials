@@ -21,9 +21,15 @@ public:
 	string Name;
 	int Age;
 
-	friend ostream& operator<< (ostream& out, Person& p)
+	friend ostream& operator<< (ostream& out, const Person& p)
 	{
 		out << "[" << p.Id << "] " << p.Name << " (" << p.Age << ")";
 		return out;
+	}
+
+	// Used for set<T>
+	bool operator< (const Person& p) const
+	{
+		return this->Id < p.Id;
 	}
 };

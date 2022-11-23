@@ -4,13 +4,13 @@
 
 using namespace std;
 
-typedef map<int, Person> Persons;
+typedef map<int, Person> PersonMap;
 
 class MapOperation
 {
 public:
 	void Execute();
 private:
-	Persons mPersons;
+	PersonMap mPersons;
 };
 

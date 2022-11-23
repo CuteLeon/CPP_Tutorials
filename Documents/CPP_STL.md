@@ -1,29 +1,5 @@
-# Map
+Entity:
 
-C++ 中 map 提供的是一种键值对容器，里面的数据都是成对出现的
-
-每一对中的第一个值称之为关键字(key)，每个关键字只能在 map 中出现一次；第二个称之为该关键字的对应值。
-
-## Map的使用
-
-1. 需要导入头文件
-
-   ```c++
-   #include <map> // STL头文件没有扩展名.h
-   ```
-
-2. map 对象是一个模版类，需要关键字和存储对象两个模版参数
-
-   ```c++
-    std::map<int , std::string> person;
-   ```
-
-3. 可以对模版进行类型定义使其使用方便
-
-   ```c++
-   typedef std::map<int , std::string> MAP_INI_STRING;
-   MAP_INI_STRING person;
-   ```
 
 ```c++
 #pragma once
@@ -49,18 +25,42 @@ public:
 	string Name;
 	int Age;
 
-	friend ostream& operator<< (ostream& out, Person& p)
+	friend ostream& operator<< (ostream& out, const Person& p)
 	{
 		out << "[" << p.Id << "] " << p.Name << " (" << p.Age << ")";
 		return out;
 	}
+
+	// Used for set<T>
+	bool operator< (const Person& p) const
+	{
+		return this->Id < p.Id;
+	}
 };
 ```
 
+# Map
+
+C++ 中 map 提供的是一种键值对容器，里面的数据都是成对出现的
+
+每一对中的第一个值称之为关键字(key)，每个关键字只能在 map 中出现一次；第二个称之为该关键字的对应值。
+
 ```c++
-#include "MapOperation.h"
+#pragma once
+#include "Types.h"
+#include <map>
 
 using namespace std;
+
+typedef map<int, Person> PersonMap;
+
+class MapOperation
+{
+public:
+	void Execute();
+private:
+	PersonMap mPersons;
+};
 
 void MapOperation::Execute()
 {
@@ -115,7 +115,7 @@ void MapOperation::Execute()
 	}
 
 	// 遍历
-	for (auto iter = mPersons.rbegin(); iter != mPersons.rend(); iter++)
+	for (auto iter = mPersons.begin(); iter != mPersons.end(); iter++)
 	{
 		cout << iter->first << " => " << iter->second << endl;
 	}
@@ -127,6 +127,91 @@ void MapOperation::Execute()
 
 	// 检查是否存在
 	cout << "检查 => " << (mPersons.count(2) ? "存在" : "不存在") << "; " << (mPersons.count(12) ? "存在" : "不存在") << endl;
+
+	// 获取总数
+	cout << "Size : " << mPersons.size() << endl;
+
+	// 检查是否为空
+	cout << "Is emptry : " << mPersons.empty() << endl;
+
+	// 清空
+	mPersons.clear();
+	cout << "Size => " << mPersons.size() << ", Is emptry: " << mPersons.empty() << endl;
+}
+```
+
+# SET
+
+```c++
+#pragma once
+#include "Types.h"
+#include <set>
+
+using namespace std;
+
+typedef set<Person> PersonSet;
+
+class SetOperation
+{
+public:
+	void Execute();
+private:
+	PersonSet mPersons;
+};
+
+void SetOperation::Execute()
+{
+	cout << "Set Operation..." << endl;
+	
+	// 插入
+	for (size_t i = 0; i < 10; i++)
+	{
+		mPersons.insert(Person(i, "Person_" + to_string(i), i));
+	}
+
+	// insert or emplace will not replace, just skipped
+	// mPersons.insert(Person(5, "Replace_5", 105));
+	auto person_15 = mPersons.insert(Person(15, "Insert_15", 115));
+	mPersons.emplace(Person(15, "Replace_15", 115));
+	auto unplacedPerson = Person();
+
+	// 查找
+	auto target1 = mPersons.find(*person_15.first);
+	if (target1 != mPersons.end())
+	{
+		cout << "Target: " << *target1 << endl;
+	}
+	else
+	{
+		cout << "Can't find target object." << endl;
+	}
+	target1 = mPersons.find(unplacedPerson);
+	if (target1 != mPersons.end())
+	{
+		cout << "Target: " << *target1 << endl;
+	}
+	else
+	{
+		cout << "Target: Can't find target object." << endl;
+	}
+
+	// 遍历
+	for (auto iter = mPersons.begin(); iter != mPersons.end(); iter++)
+	{
+		cout << "Loop by iterator: " << *iter << endl;
+	}
+	for (auto& pair : mPersons)
+	{
+		cout << "Loop by pair: " << pair << endl;
+	}
+
+	// 检查是否存在
+	cout << "检查 => " << (mPersons.count(*person_15.first) ? "存在" : "不存在") << "; " << (mPersons.count(unplacedPerson) ? "存在" : "不存在") << endl;
+
+	// 删除
+	cout << "Count => " << mPersons.size() << endl;
+	mPersons.erase(*person_15.first);
+	mPersons.erase(unplacedPerson);
 
 	// 获取总数
 	cout << "Size : " << mPersons.size() << endl;
