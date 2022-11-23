@@ -57,7 +57,11 @@ void MapOperation::Execute()
 	// ±éÀú
 	for (auto iter = mPersons.rbegin(); iter != mPersons.rend(); iter++)
 	{
-		cout << iter->first << " => " << iter->second << endl;
+		cout << "Loop by iterator: " << iter->first << " => " << iter->second << endl;
+	}
+	for (auto& pair : mPersons)
+	{
+		cout << "Loop by pair: " << pair.first << " => " << pair.second << endl;
 	}
 
 	// É¾³ı
