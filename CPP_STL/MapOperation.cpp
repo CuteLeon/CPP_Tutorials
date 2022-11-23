@@ -1,63 +1,3 @@
-# Map
-
-C++ 中 map 提供的是一种键值对容器，里面的数据都是成对出现的
-
-每一对中的第一个值称之为关键字(key)，每个关键字只能在 map 中出现一次；第二个称之为该关键字的对应值。
-
-## Map的使用
-
-1. 需要导入头文件
-
-   ```c++
-   #include <map> // STL头文件没有扩展名.h
-   ```
-
-2. map 对象是一个模版类，需要关键字和存储对象两个模版参数
-
-   ```c++
-    std::map<int , std::string> person;
-   ```
-
-3. 可以对模版进行类型定义使其使用方便
-
-   ```c++
-   typedef std::map<int , std::string> MAP_INI_STRING;
-   MAP_INI_STRING person;
-   ```
-
-```c++
-#pragma once
-#include <string>
-#include <iostream>
-
-using namespace std;
-
-struct Person {
-public:
-	Person()
-		:Person(0, "", 0)
-	{
-	}
-	Person(int id, string name, int age)
-		: Id(id)
-		, Name(name)
-		, Age(age)
-	{
-	}
-
-	int Id;
-	string Name;
-	int Age;
-
-	friend ostream& operator<< (ostream& out, Person& p)
-	{
-		out << "[" << p.Id << "] " << p.Name << " (" << p.Age << ")";
-		return out;
-	}
-};
-```
-
-```c++
 #include "MapOperation.h"
 
 using namespace std;
@@ -66,7 +6,7 @@ void MapOperation::Execute()
 {
 	cout << "Map Operation..." << endl;
 
-	// 插入
+	// ����
 	for (size_t i = 0; i < 10; i++)
 	{
 		mPersons.insert(pair<int, Person>(i, Person(i, "Person_" + to_string(i), i)));
@@ -77,11 +17,11 @@ void MapOperation::Execute()
 	mPersons.insert(make_pair(15, Person(15, "Insert_15", 115)));
 	mPersons.emplace(15, Person(15, "Replace_15", 115));
 
-	// 插入和替换
+	// ������滻
 	mPersons[13] = Person(13, "Insert_13", 113);
 	mPersons[3] = Person(3, "Replace_3", 103);
 
-	// 查找
+	// ����
 	auto target1 = mPersons.find(8);
 	if (target1 != mPersons.end())
 	{
@@ -105,7 +45,7 @@ void MapOperation::Execute()
 	cout << "Target: " << target2<< endl;
 	try
 	{
-		// at() 可能导致异常
+		// at() ���ܵ����쳣
 		target2 = mPersons.at(17);
 		cout << "Target: " << target2 << endl;
 	}
@@ -114,29 +54,27 @@ void MapOperation::Execute()
 		cerr << "Exception when call at on map: " << ex.what() << endl;
 	}
 
-	// 遍历
+	// ����
 	for (auto iter = mPersons.rbegin(); iter != mPersons.rend(); iter++)
 	{
 		cout << iter->first << " => " << iter->second << endl;
 	}
 
-	// 删除
+	// ɾ��
 	cout << "Count => " << mPersons.size() << endl;
 	mPersons.erase(4);
 	mPersons.erase(14);
 
-	// 检查是否存在
-	cout << "检查 => " << (mPersons.count(2) ? "存在" : "不存在") << "; " << (mPersons.count(12) ? "存在" : "不存在") << endl;
+	// ����Ƿ����
+	cout << "��� => " << (mPersons.count(2) ? "����" : "������") << "; " << (mPersons.count(12) ? "����" : "������") << endl;
 
-	// 获取总数
+	// ��ȡ����
 	cout << "Size : " << mPersons.size() << endl;
 
-	// 检查是否为空
+	// ����Ƿ�Ϊ��
 	cout << "Is emptry : " << mPersons.empty() << endl;
 
-	// 清空
+	// ���
 	mPersons.clear();
 	cout << "Size => " << mPersons.size() << ", Is emptry: " << mPersons.empty() << endl;
 }
-```
-
