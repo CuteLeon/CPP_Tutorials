@@ -23,13 +23,19 @@ int main()
 	cout << Line::getLineCount() << endl;
 	cout << line.getLineCount() << endl;
 
-	// Inheritance
+	// 继承
 	Rectangle rect;
 	rect.setWidth(5);
 	rect.setHeight(7);
 	int area = rect.getArea();
 	cout << "Total area: " << rect.getArea() << endl;
 	cout << "Total paint cost: $" << rect.getCost(area) << endl;
+
+	// 重载运算符
+	Box box2;
+	box2.setWidth(5.6);
+	auto box3 = box + box2;
+	printWidth(box3);
 
 	system("pause");
 }

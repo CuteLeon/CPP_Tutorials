@@ -549,3 +549,354 @@ int main(void)
 }
 ```
 
+# C++ 重载运算符和重载函数
+
+C++ 允许在同一作用域中的某个**函数**和**运算符**指定多个定义，分别称为**函数重载**和**运算符重载**。
+
+重载声明是指一个与之前已经在该作用域内声明过的函数或方法具有相同名称的声明，但是它们的参数列表和定义（实现）不相同。
+
+当您调用一个**重载函数**或**重载运算符**时，编译器通过把您所使用的参数类型与定义中的参数类型进行比较，决定选用最合适的定义。选择最合适的重载函数或重载运算符的过程，称为**重载决策**。
+
+## 可重载运算符/不可重载运算符
+
+下面是可重载的运算符列表：
+
+| +    | -    | *    | /      | %      | ^         |
+| ---- | ---- | ---- | ------ | ------ | --------- |
+| &    | \|   | ~    | !      | ,      | =         |
+| <    | >    | <=   | >=     | ++     | --        |
+| <<   | >>   | ==   | !=     | &&     | \|\|      |
+| +=   | -=   | /=   | %=     | ^=     | &=        |
+| \|=  | *=   | <<=  | >>=    | []     | ()        |
+| ->   | ->*  | new  | new [] | delete | delete [] |
+
+下面是不可重载的运算符列表：
+
+| ::   | .*   | .    | ?:   |
+| ---- | ---- | ---- | ---- |
+
+## C++ 中的函数重载
+
+在同一个作用域内，可以声明几个功能类似的同名函数，但是这些同名函数的形式参数（指参数的个数、类型或者顺序）必须不同。您不能仅通过返回类型的不同来重载函数。
+
+```c++
+#include <iostream>
+using namespace std;
+
+class printData 
+{
+   public:
+      void print(int i) {
+        cout << "Printing int: " << i << endl;
+      }
+
+      void print(double  f) {
+        cout << "Printing float: " << f << endl;
+      }
+
+      void print(string c) {
+        cout << "Printing character: " << c << endl;
+      }
+};
+
+int main(void)
+{
+   printData pd;
+ 
+   // Call print to print integer
+   pd.print(5);
+   // Call print to print float
+   pd.print(500.263);
+   // Call print to print character
+   pd.print("Hello C++");
+ 
+   return 0;
+}
+```
+
+## C++ 中的运算符重载
+
+您可以重定义或重载大部分 C++ 内置的运算符。这样，您就能使用自定义类型的运算符。
+
+重载的运算符是带有特殊名称的函数，函数名是由关键字 operator 和其后要重载的运算符符号构成的。与其他函数一样，重载运算符有一个返回类型和一个参数列表。
+
+```c++
+Box operator+(const Box&);
+Box operator+(const Box&, const Box&);
+```
+
+### 重载输入运算符>>
+
+下面我们以全局函数的形式重载`>>`，使它能够读入两个 double 类型的数据，并分别赋值给复数的实部和虚部：
+
+```c++
+istream & operator>>(istream &in, complex &A){
+    in >> A.m_real >> A.m_imag;
+    return in;
+}
+```
+
+### 重载输出运算符<<
+
+同样地，我们也可以模仿上面的形式对输出运算符`>>`进行重载，让它能够输出复数，请看下面的代码：
+
+```c++
+ostream & operator<<(ostream &out, complex &A){
+    out << A.m_real <<" + "<< A.m_imag <<" i ";
+    return out;
+}
+```
+
+### 重载运算符 ++ 和 --
+
+递增运算符（ ++ ）和递减运算符（ -- ）是 C++ 语言中两个重要的一元运算符
+
+```c++
+class Time
+{
+    private:
+    int hours;             // 0 到 23
+    int minutes;           // 0 到 59
+    public:
+    Time(){
+        hours = 0;
+        minutes = 0;
+    }
+    // 显示时间的方法
+    void displayTime()
+    {
+        cout << "H: " << hours << " M:" << minutes <<endl;
+    }
+    // 重载前缀递增运算符（ ++ ）
+    Time operator++ ()
+    {
+        ++minutes;          // 对象加 1
+        if(minutes >= 60)  
+        {
+            ++hours;
+            minutes -= 60;
+        }
+        return Time(hours, minutes);
+    }
+    // 重载后缀递增运算符（ ++ ）
+    Time operator++( int )         
+    {
+        // 保存原始值
+        Time T(hours, minutes);
+        // 对象加 1
+        ++minutes;                    
+        if(minutes >= 60)
+        {
+            ++hours;
+            minutes -= 60;
+        }
+        // 返回旧的原始值
+        return T; 
+    }
+}；
+```
+
+### 重载赋值运算符 =
+
+就像其他运算符一样，您可以重载赋值运算符（ = ），用于创建一个对象，比如拷贝构造函数。
+
+```c++
+class Distance
+{
+private:
+    int feet;             // 0 到无穷
+    int inches;           // 0 到 12
+public:
+    // 所需的构造函数
+    Distance(){
+        feet = 0;
+        inches = 0;
+    }
+    Distance(int f, int i){
+        feet = f;
+        inches = i;
+    }
+    void operator=(const Distance &D )
+    { 
+        feet = D.feet;
+        inches = D.inches;
+    }
+    // 显示距离的方法
+    void displayDistance()
+    {
+        cout << "F: " << feet <<  " I:" <<  inches << endl;
+    }
+};
+
+int main()
+{
+   Distance D1(11, 10), D2(5, 11);
+   D1 = D2;    // 调用赋值运算符
+   return 0;
+}
+```
+
+### 重载函数调用运算符 ()
+
+```c++
+class Distance
+{
+   private:
+      int feet;             // 0 到无穷
+      int inches;           // 0 到 12
+   public:
+      // 所需的构造函数
+      Distance(){
+         feet = 0;
+         inches = 0;
+      }
+      // 重载函数调用运算符
+      Distance operator()(int a, int b, int c)
+      {
+         Distance D;
+         D.feet = a + c + 10;
+         D.inches = b + c + 100 ;
+         return D;
+      }      
+};
+
+int main()
+{
+   Distance D1(11, 10), D2;
+   D2 = D1(10, 10, 10); // 调用 operator()
+   cout << "Second Distance :"; 
+   D2.displayDistance();
+
+   return 0;
+}
+```
+
+### 重载下标运算符 [] 
+
+下标操作符 [] 通常用于访问数组元素。重载该运算符用于增强操作 C++ 数组的功能。
+
+```c++
+const int SIZE = 10;
+
+class safearay
+{
+   private:
+      int arr[SIZE];
+   public:
+      safearay() 
+      {
+         register int i;
+         for(i = 0; i < SIZE; i++)
+         {
+           arr[i] = i;
+         }
+      }
+      int& operator[](int i)
+      {
+          if( i > SIZE )
+          {
+              return arr[0];
+          }
+          return arr[i];
+      }
+};
+
+int main()
+{
+   safearay A;
+
+   cout << "A[2] 的值为 : " << A[2] <<endl;
+   cout << "A[5] 的值为 : " << A[5]<<endl;
+   cout << "A[12] 的值为 : " << A[12]<<endl;
+   return 0;
+}
+```
+
+## 重载类成员访问运算符 -> 
+
+类成员访问运算符（ -> ）可以被重载，但它较为麻烦。它被定义用于为一个类赋予"指针"行为。运算符 -> 必须是一个成员函数。如果使用了 -> 运算符，返回类型必须是指针或者是类的对象。
+
+运算符 -> 通常与指针引用运算符 * 结合使用，用于实现"智能指针"的功能。这些指针是行为与正常指针相似的对象，唯一不同的是，当您通过指针访问对象时，它们会执行其他的任务。比如，当指针销毁时，或者当指针指向另一个对象时，会自动删除对象。
+
+```c++
+class X{
+public:
+    int Value;
+}
+class Ptr{
+	// Ptr->Value; Ptr上的一元运算符后缀->返回X的指针类型，所以(Ptr->)可以直接访问X类型的成员
+    X * operator->();
+};
+```
+
+# C++ 多态
+
+**多态**按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。
+
+C++ 多态意味着调用成员函数时，会根据调用函数的对象的类型来执行不同的函数。
+
+## 虚函数
+
+**虚函数** 是在基类中使用关键字 **virtual** 声明的函数。在派生类中重新定义基类中定义的虚函数时，会告诉编译器不要静态链接到该函数。
+
+我们想要的是在程序中任意点可以根据所调用的对象类型来选择调用的函数，这种操作被称为**动态链接**，或**后期绑定**。
+
+```c++
+class Rectangle: public Shape{
+    public:
+    Rectangle( int a=0, int b=0):Shape(a, b) { }
+    int area ()
+    { 
+        cout << "Rectangle class area :" <<endl;
+        return (width * height); 
+    }
+};
+
+class Triangle: public Shape{
+    public:
+    Triangle( int a=0, int b=0):Shape(a, b) { }
+    int area ()
+    { 
+        cout << "Triangle class area :" <<endl;
+        return (width * height / 2); 
+    }
+};
+
+class Shape {
+    protected:
+    int width, height;
+    public:
+    Shape( int a=0, int b=0)
+    {
+        width = a;
+        height = b;
+    }
+    virtual int area()
+    {
+        cout << "Parent class area :" <<endl;
+        return 0;
+    }
+};
+```
+
+## 纯虚函数
+
+您可能想要在基类中定义虚函数，以便在派生类中重新定义该函数更好地适用于对象，但是您在基类中又不能对虚函数给出有意义的实现，这个时候就会用到纯虚函数。
+
+= 0 告诉编译器，函数没有主体，上面的虚函数是**纯虚函数**。
+
+```c++
+class Shape {
+   protected:
+      int width, height;
+   public:
+      Shape( int a=0, int b=0)
+      {
+         width = a;
+         height = b;
+      }
+      // pure virtual function
+      virtual int area() = 0;
+};
+```
+
