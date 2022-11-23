@@ -1,9 +1,18 @@
 ﻿#include <iostream>
 #include <vector>
+#include <csignal>
 #include "MyException.h"
 #include "TemplateContainer.h"
 #include "Stack.h"
 using namespace std;
+
+void signalHandler(int signum)
+{
+	cout << "Interrupt signal (" << signum << ") received.\n";
+	// 清理并关闭
+	// 终止程序  
+	exit(signum);
+}
 
 int main()
 {
@@ -84,5 +93,9 @@ int main()
 	stackString.pop();
 	stackInt.pop();
 	cout << "Top: " << stackInt.top() << ", " << stackString.top() << endl;
+
+	// signal
+	signal(17, signalHandler);
+	raise(17);
 	system("pause");
 }

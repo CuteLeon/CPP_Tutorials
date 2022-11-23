@@ -582,3 +582,46 @@ int main ()
 | SIGINT  | 接收到交互注意信号。                         |
 | SIGSEGV | 非法访问内存。                               |
 | SIGTERM | 发送到程序的终止请求。                       |
+
+## signal() 函数
+
+C++ 信号处理库提供了 **signal** 函数，用来捕获突发事件。
+
+这个函数接收两个参数：第一个参数是一个整数，代表了信号的编号；第二个参数是一个指向信号处理函数的指针。
+
+```c++
+#include <iostream>
+#include <csignal>
+#include <unistd.h>
+
+using namespace std;
+
+void signalHandler( int signum )
+{
+    cout << "Interrupt signal (" << signum << ") received.\n";
+    // 清理并关闭
+    // 终止程序  
+    exit(signum);
+}
+
+int main ()
+{
+    // 注册信号 SIGINT 和信号处理程序
+    signal(SIGINT, signalHandler);  
+
+    while(1){
+        cout << "Going to sleep...." << endl;
+        sleep(1);
+    }
+    return 0;
+}
+```
+
+## raise() 函数
+
+您可以使用函数 **raise()** 生成信号，该函数带有一个整数信号编号作为参数
+
+```c++
+int raise (signal sig);
+```
+
