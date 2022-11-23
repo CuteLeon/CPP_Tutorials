@@ -335,3 +335,94 @@ template <typename type> ret-type func-name(parameter list)
 ```
 
 在这里，type 是函数所使用的数据类型的占位符名称。这个名称可以在函数定义中使用
+
+```c++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template <typename T>
+inline T const& Max (T const& a, T const& b) 
+{ 
+    return a < b ? b:a; 
+}
+
+int main ()
+{
+    int i = 39;
+    int j = 20;
+    cout << "Max(i, j): " << Max(i, j) << endl; 
+
+    double f1 = 13.5; 
+    double f2 = 20.7; 
+    cout << "Max(f1, f2): " << Max(f1, f2) << endl; 
+
+    string s1 = "Hello"; 
+    string s2 = "World"; 
+    cout << "Max(s1, s2): " << Max(s1, s2) << endl; 
+    return 0;
+}
+```
+
+## 类模板
+
+正如我们定义函数模板一样，我们也可以定义类模板。泛型类声明的一般形式如下所示：
+
+```c++
+template <class type> class class-name {
+}
+```
+
+在这里，**type** 是占位符类型名称，可以在类被实例化的时候进行指定。您可以使用一个逗号分隔的列表来定义多个泛型数据类型。
+
+```c++
+#pragma once
+
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <string>
+#include <stdexcept>
+
+using namespace std;
+
+template <class T>
+class Stack
+{
+private:
+	vector<T> items;
+public:
+	void push(T const&);  // 入栈
+	void pop();               // 出栈
+	T top() const;            // 返回栈顶元素
+	bool empty() const {       // 如果为空则返回真。
+		return items.empty();
+	}
+};
+
+template <class T>
+void Stack<T>::push(T const& elem)
+{
+	items.push_back(elem);
+}
+
+template <class T>
+void Stack<T>::pop()
+{
+	if (items.empty()) {
+		throw out_of_range("Stack<>::pop(): empty stack");
+	}
+	items.pop_back();
+}
+
+template <class T>
+T Stack<T>::top() const
+{
+	if (items.empty()) {
+		throw out_of_range("Stack<>::top(): empty stack");
+	}
+	return items.back();
+}
+```
+

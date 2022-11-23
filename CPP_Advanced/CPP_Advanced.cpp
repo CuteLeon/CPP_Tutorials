@@ -1,5 +1,8 @@
 ﻿#include <iostream>
+#include <vector>
 #include "MyException.h"
+#include "TemplateContainer.h"
+#include "Stack.h"
 using namespace std;
 
 int main()
@@ -65,5 +68,21 @@ int main()
 
 	delete pvalue;         // 释放内存
 
+	// 模板
+	cout << "Max => " << TemplateContainer::Max(1, 2) << endl;
+	cout << "Max => " << TemplateContainer::Max(1.1, 2.1) << endl;
+
+	Stack<int> stackInt;
+	Stack<string> stackString;
+	stackString.push("string_a");
+	stackString.push("string_b");
+	stackString.push("string_c");
+	stackInt.push(1);
+	stackInt.push(2);
+	stackInt.push(3);
+	cout << "Top: " << stackInt.top() << ", " << stackString.top() << endl;
+	stackString.pop();
+	stackInt.pop();
+	cout << "Top: " << stackInt.top() << ", " << stackString.top() << endl;
 	system("pause");
 }

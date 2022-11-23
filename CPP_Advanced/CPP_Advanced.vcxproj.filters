@@ -21,9 +21,18 @@
     <ClCompile Include="MyException.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TemplateContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

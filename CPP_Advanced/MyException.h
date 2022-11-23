@@ -7,19 +7,10 @@ using namespace std;
 struct MyException : public exception
 {
 public:
-    MyException(string& message)
-        : mMessage(message.c_str())
-    { }
-
-    MyException(const char* message)
-        : mMessage(message)
-    { }
-
-    const char* what() const throw ()
-    {
-        return mMessage;
-    }
+	MyException(string& message);
+	MyException(const char* message);
+	const char* what() const throw ();
 
 private:
-    const char* mMessage;
+	const char* mMessage;
 };

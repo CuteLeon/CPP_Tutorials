@@ -129,9 +129,12 @@
   <ItemGroup>
     <ClCompile Include="CPP_Advanced.cpp" />
     <ClCompile Include="MyException.cpp" />
+    <ClCompile Include="TemplateContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyException.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="TemplateContainer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
