@@ -127,3 +127,101 @@ private:
 ```
 
 **what()** 是异常类提供的一个公共方法，它已被所有子异常类重载。这将返回异常产生的原因。
+
+# C++ 动态内存
+
+了解动态内存在 C++ 中是如何工作的是成为一名合格的 C++ 程序员必不可少的。C++ 程序中的内存分为两个部分：
+
+- **栈：**在函数内部声明的所有变量都将占用栈内存。
+- **堆：**这是程序中未使用的内存，在程序运行时可用于动态分配内存。
+
+很多时候，您无法提前预知需要多少内存来存储某个定义变量中的特定信息，所需内存的大小需要在运行时才能确定。
+
+在 C++ 中，您可以使用特殊的运算符为给定类型的变量在运行时分配堆内的内存，这会返回所分配的空间地址。这种运算符即 **new** 运算符。
+
+如果您不需要动态分配内存，可以使用 **delete** 运算符，删除之前由 new 运算符分配的内存。
+
+## new 运算符
+
+下面是使用 new 运算符来为任意的数据类型动态分配内存的通用语法：
+
+```c++
+new data-type;
+```
+
+在这里，**data-type** 可以是包括数组在内的任意内置的数据类型，也可以是包括类或结构在内的用户自定义的任何数据类型。
+
+```c++
+double* pvalue  = NULL; // 初始化为 null 的指针
+pvalue  = new double;   // 为变量请求内存
+```
+
+如果自由存储区已被用完，可能无法成功分配内存。所以建议检查 new 运算符是否返回 NULL 指针。
+
+```c++
+double* pvalue  = NULL;
+if( !(pvalue  = new double ))
+{
+   cout << "Error: out of memory." <<endl;
+   exit(1);
+}
+```
+
+### malloc()
+
+**malloc()** 函数在 C 语言中就出现了，在 C++ 中仍然存在，但建议尽量不要使用 malloc() 函数。new 与 malloc() 函数相比，其主要的优点是，new 不只是分配了内存，它还创建了对象。
+
+## delete 运算符
+
+在任何时候，当您觉得某个已经动态分配内存的变量不再需要使用时，您可以使用 delete 操作符释放它所占用的内存。
+
+```C++
+delete pvalue;        // 释放 pvalue 所指向的内存
+```
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    double* pvalue  = NULL; // 初始化为 null 的指针
+    pvalue  = new double;   // 为变量请求内存
+
+    *pvalue = 29494.99;     // 在分配的地址存储值
+    cout << "Value of pvalue : " << *pvalue << endl;
+
+    delete pvalue;         // 释放内存
+
+    return 0;
+}
+```
+
+## 数组的动态内存分配
+
+假设我们要为一个字符数组（一个有 20 个字符的字符串）分配内存，我们可以使用上面实例中的语法来为数组动态地分配内存。
+
+```
+char* pvalue  = NULL;   // 初始化为 null 的指针
+pvalue  = new char[20]; // 为变量请求内存
+delete [] pvalue;        // 删除 pvalue 所指向的数组
+```
+
+### 多维数组的动态内存分配
+
+```
+int ROW = 2;
+int COL = 3;
+
+// 分配内存
+double **pvalue  = new double* [ROW];
+for(int i = 0; i < COL; i++) {
+	pvalue[i] = new double[COL];
+}
+
+// 释放内存
+for(int i = 0; i < COL; i++) {
+	delete[] pvalue[i];
+}
+delete [] pvalue;
+```
