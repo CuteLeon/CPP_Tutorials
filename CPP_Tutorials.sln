@@ -21,6 +21,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPP_Advanced", "CPP_Advance
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPP_STL", "CPP_STL\CPP_STL.vcxproj", "{ED8B616F-111E-4CC2-907D-31C9FAC11156}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", "{D4608372-37B1-4648-8BAC-AE857C7552BB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "连续子序列的和", "连续子序列的和\连续子序列的和.vcxproj", "{ECF8B667-35CC-4DB9-8555-2D6345722300}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,9 +65,20 @@ Global
 		{ED8B616F-111E-4CC2-907D-31C9FAC11156}.Release|x64.Build.0 = Release|x64
 		{ED8B616F-111E-4CC2-907D-31C9FAC11156}.Release|x86.ActiveCfg = Release|Win32
 		{ED8B616F-111E-4CC2-907D-31C9FAC11156}.Release|x86.Build.0 = Release|Win32
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Debug|x64.ActiveCfg = Debug|x64
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Debug|x64.Build.0 = Debug|x64
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Debug|x86.ActiveCfg = Debug|Win32
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Debug|x86.Build.0 = Debug|Win32
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Release|x64.ActiveCfg = Release|x64
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Release|x64.Build.0 = Release|x64
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Release|x86.ActiveCfg = Release|Win32
+		{ECF8B667-35CC-4DB9-8555-2D6345722300}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ECF8B667-35CC-4DB9-8555-2D6345722300} = {D4608372-37B1-4648-8BAC-AE857C7552BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2FEA7B3-4539-4E7D-A8DD-C7A363BE96F3}
