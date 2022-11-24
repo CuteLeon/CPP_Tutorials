@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "连续子序列的和", "�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "数组流的平均值", "数组流的平均值\数组流的平均值.vcxproj", "{389E0CC5-BB0C-4E9C-A47B-DDC8883F6982}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "无重复字符的最长子串", "无重复字符的最长子串\无重复字符的最长子串.vcxproj", "{64D57427-C77E-408E-B8CA-9E5E02084E69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -83,6 +85,14 @@ Global
 		{389E0CC5-BB0C-4E9C-A47B-DDC8883F6982}.Release|x64.Build.0 = Release|x64
 		{389E0CC5-BB0C-4E9C-A47B-DDC8883F6982}.Release|x86.ActiveCfg = Release|Win32
 		{389E0CC5-BB0C-4E9C-A47B-DDC8883F6982}.Release|x86.Build.0 = Release|Win32
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Debug|x64.ActiveCfg = Debug|x64
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Debug|x64.Build.0 = Debug|x64
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Debug|x86.ActiveCfg = Debug|Win32
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Debug|x86.Build.0 = Debug|Win32
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Release|x64.ActiveCfg = Release|x64
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Release|x64.Build.0 = Release|x64
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Release|x86.ActiveCfg = Release|Win32
+		{64D57427-C77E-408E-B8CA-9E5E02084E69}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +100,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{ECF8B667-35CC-4DB9-8555-2D6345722300} = {D4608372-37B1-4648-8BAC-AE857C7552BB}
 		{389E0CC5-BB0C-4E9C-A47B-DDC8883F6982} = {D4608372-37B1-4648-8BAC-AE857C7552BB}
+		{64D57427-C77E-408E-B8CA-9E5E02084E69} = {D4608372-37B1-4648-8BAC-AE857C7552BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2FEA7B3-4539-4E7D-A8DD-C7A363BE96F3}
