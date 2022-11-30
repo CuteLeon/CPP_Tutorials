@@ -6,12 +6,12 @@ void VectorOperation::Execute()
 {
 	cout << "Vector Operation..." << endl;
 
-	// ÈÝÁ¿
+	// å®¹é‡
 	cout << "Capacity : " << mPersons.capacity() << ", Max size : " << mPersons.max_size() << endl;
 	mPersons.reserve(100);
 	cout << "Capacity : " << mPersons.capacity() << ", Max size : " << mPersons.max_size() << endl;
 
-	// ²åÈë
+	// æ’å…¥
 	for (size_t i = 0; i < 10; i++)
 	{
 		mPersons.push_back(Person(i, "Person_" + to_string(i), i));
@@ -25,11 +25,11 @@ void VectorOperation::Execute()
 
 	auto unplacedPerson = Person();
 
-	// µÚÒ»¸öÔªËØ ºÍ ×îºóÒ»¸öÔªËØ
+	// ç¬¬ä¸€ä¸ªå…ƒç´  å’Œ æœ€åŽä¸€ä¸ªå…ƒç´ 
 	cout << mPersons.front() << endl;
 	cout << mPersons.back() << endl;
 
-	// ²éÕÒ
+	// æŸ¥æ‰¾
 	auto& target1 = mPersons.at(5);
 	cout << "Target: " << target1 << endl;
 	try
@@ -41,7 +41,7 @@ void VectorOperation::Execute()
 		cerr << "Exception when call at on map: " << ex.what() << endl;
 	}
 
-	// ±éÀú
+	// éåŽ†
 	for (auto iter = mPersons.begin(); iter != mPersons.end(); iter++)
 	{
 		cout << "Loop by iterator: " << *iter << endl;
@@ -57,22 +57,22 @@ void VectorOperation::Execute()
 		cout << "Loop by pair: " << pair << endl;
 	}
 
-	// É¾³ý
+	// åˆ é™¤
 	cout << "Count => " << mPersons.size() << endl;
 	mPersons.pop_back();
 	// mPersons.erase(mPersons.end()--);
 
-	// »ñÈ¡×ÜÊý
+	// èŽ·å–æ€»æ•°
 	cout << "Size : " << mPersons.size() << endl;
 
-	// ÐÞ¸Ä×ÜÊý
+	// ä¿®æ”¹æ€»æ•°
 	mPersons.resize(15);
 	cout << "Size : " << mPersons.size() << endl;
 
-	// ¼ì²éÊÇ·ñÎª¿Õ
+	// æ£€æŸ¥æ˜¯å¦ä¸ºç©º
 	cout << "Is emptry : " << mPersons.empty() << endl;
 
-	// Çå¿Õ
+	// æ¸…ç©º
 	mPersons.clear();
 	cout << "Size => " << mPersons.size() << ", Is emptry: " << mPersons.empty() << endl;
 }

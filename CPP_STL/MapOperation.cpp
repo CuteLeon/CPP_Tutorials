@@ -6,7 +6,7 @@ void MapOperation::Execute()
 {
 	cout << "Map Operation..." << endl;
 
-	// ²åÈë
+	// æ’å…¥
 	for (size_t i = 0; i < 10; i++)
 	{
 		mPersons.insert(pair<int, Person>(i, Person(i, "Person_" + to_string(i), i)));
@@ -17,11 +17,11 @@ void MapOperation::Execute()
 	mPersons.insert(make_pair(15, Person(15, "Insert_15", 115)));
 	mPersons.emplace(15, Person(15, "Replace_15", 115));
 
-	// ²åÈëºÍÌæ»»
+	// æ’å…¥å’Œæ›¿æ¢
 	mPersons[13] = Person(13, "Insert_13", 113);
 	mPersons[3] = Person(3, "Replace_3", 103);
 
-	// ²éÕÒ
+	// æŸ¥æ‰¾
 	auto target1 = mPersons.find(8);
 	if (target1 != mPersons.end())
 	{
@@ -45,7 +45,7 @@ void MapOperation::Execute()
 	cout << "Target: " << target2<< endl;
 	try
 	{
-		// at() ¿ÉÄÜµ¼ÖÂÒì³£
+		// at() å¯èƒ½å¯¼è‡´å¼‚å¸¸
 		target2 = mPersons.at(17);
 		cout << "Target: " << target2 << endl;
 	}
@@ -54,7 +54,7 @@ void MapOperation::Execute()
 		cerr << "Exception when call at on map: " << ex.what() << endl;
 	}
 
-	// ±éÀú
+	// éå†
 	for (auto iter = mPersons.begin(); iter != mPersons.end(); iter++)
 	{
 		cout << "Loop by iterator: " << iter->first << " => " << iter->second << endl;
@@ -64,21 +64,21 @@ void MapOperation::Execute()
 		cout << "Loop by pair: " << pair.first << " => " << pair.second << endl;
 	}
 
-	// É¾³ı
+	// åˆ é™¤
 	cout << "Count => " << mPersons.size() << endl;
 	mPersons.erase(4);
 	mPersons.erase(14);
 
-	// ¼ì²éÊÇ·ñ´æÔÚ
-	cout << "¼ì²é => " << (mPersons.count(2) ? "´æÔÚ" : "²»´æÔÚ") << "; " << (mPersons.count(12) ? "´æÔÚ" : "²»´æÔÚ") << endl;
+	// æ£€æŸ¥æ˜¯å¦å­˜åœ¨
+	cout << "æ£€æŸ¥ => " << (mPersons.count(2) ? "å­˜åœ¨" : "ä¸å­˜åœ¨") << "; " << (mPersons.count(12) ? "å­˜åœ¨" : "ä¸å­˜åœ¨") << endl;
 
-	// »ñÈ¡×ÜÊı
+	// è·å–æ€»æ•°
 	cout << "Size : " << mPersons.size() << endl;
 
-	// ¼ì²éÊÇ·ñÎª¿Õ
+	// æ£€æŸ¥æ˜¯å¦ä¸ºç©º
 	cout << "Is emptry : " << mPersons.empty() << endl;
 
-	// Çå¿Õ
+	// æ¸…ç©º
 	mPersons.clear();
 	cout << "Size => " << mPersons.size() << ", Is emptry: " << mPersons.empty() << endl;
 }

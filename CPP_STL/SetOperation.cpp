@@ -6,7 +6,7 @@ void SetOperation::Execute()
 {
 	cout << "Set Operation..." << endl;
 	
-	// ²åÈë
+	// æ’å…¥
 	for (size_t i = 0; i < 10; i++)
 	{
 		mPersons.insert(Person(i, "Person_" + to_string(i), i));
@@ -18,7 +18,7 @@ void SetOperation::Execute()
 	mPersons.emplace(Person(15, "Replace_15", 115));
 	auto unplacedPerson = Person();
 
-	// ²éÕÒ
+	// æŸ¥æ‰¾
 	auto target1 = mPersons.find(*person_15.first);
 	if (target1 != mPersons.end())
 	{
@@ -38,7 +38,7 @@ void SetOperation::Execute()
 		cout << "Target: Can't find target object." << endl;
 	}
 
-	// ±éÀú
+	// éåŽ†
 	for (auto iter = mPersons.begin(); iter != mPersons.end(); iter++)
 	{
 		cout << "Loop by iterator: " << *iter << endl;
@@ -48,21 +48,21 @@ void SetOperation::Execute()
 		cout << "Loop by pair: " << pair << endl;
 	}
 
-	// ¼ì²éÊÇ·ñ´æÔÚ
-	cout << "¼ì²é => " << (mPersons.count(*person_15.first) ? "´æÔÚ" : "²»´æÔÚ") << "; " << (mPersons.count(unplacedPerson) ? "´æÔÚ" : "²»´æÔÚ") << endl;
+	// æ£€æŸ¥æ˜¯å¦å­˜åœ¨
+	cout << "æ£€æŸ¥ => " << (mPersons.count(*person_15.first) ? "å­˜åœ¨" : "ä¸å­˜åœ¨") << "; " << (mPersons.count(unplacedPerson) ? "å­˜åœ¨" : "ä¸å­˜åœ¨") << endl;
 
-	// É¾³ý
+	// åˆ é™¤
 	cout << "Count => " << mPersons.size() << endl;
 	mPersons.erase(*person_15.first);
 	mPersons.erase(unplacedPerson);
 
-	// »ñÈ¡×ÜÊý
+	// èŽ·å–æ€»æ•°
 	cout << "Size : " << mPersons.size() << endl;
 
-	// ¼ì²éÊÇ·ñÎª¿Õ
+	// æ£€æŸ¥æ˜¯å¦ä¸ºç©º
 	cout << "Is emptry : " << mPersons.empty() << endl;
 
-	// Çå¿Õ
+	// æ¸…ç©º
 	mPersons.clear();
 	cout << "Size => " << mPersons.size() << ", Is emptry: " << mPersons.empty() << endl;
 }
